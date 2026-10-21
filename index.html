@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#12352b">
+  <meta name="description" content="Sistema sencillo de ventas para pequeños restaurantes y negocios.">
+  <title>POS · Tu negocio</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div id="app-shell" class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true">P</div>
+        <div class="brand-copy"><strong id="brand-name">Punto Simple</strong><span>VENTAS Y PEDIDOS</span></div>
+      </div>
+      <nav class="nav-list" aria-label="Navegación principal">
+        <button class="nav-button active" data-page="home"><span class="nav-icon">⌂</span><span>Resumen</span></button>
+        <button class="nav-button" data-page="salon"><span class="nav-icon">▦</span><span>Mesas</span></button>
+        <button class="nav-button" data-page="delivery"><span class="nav-icon">↗</span><span>Delivery</span><span id="delivery-count" class="nav-count hidden">0</span></button>
+        <button class="nav-button" data-page="quick"><span class="nav-icon">＋</span><span>Venta rápida</span></button>
+        <button class="nav-button" data-page="menu"><span class="nav-icon">☷</span><span>Menú y bebidas</span></button>
+        <button class="nav-button" data-page="reports"><span class="nav-icon">▥</span><span>Reportes</span></button>
+        <button class="nav-button" data-page="backup"><span class="nav-icon">↥</span><span>Copias de seguridad</span></button>
+        <button class="nav-button" data-page="settings"><span class="nav-icon">⚙</span><span>Configuración</span></button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="offline-note"><span class="status-dot" id="sidebar-dot"></span><div><strong id="sidebar-status">Listo para trabajar</strong><small id="sidebar-status-sub">Datos guardados en esta tablet</small></div></div>
+        <small class="version">POS Tu negocio · MVP 0.1</small>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <button class="mobile-menu icon-button" id="mobile-menu" aria-label="Abrir menú">☰</button>
+        <div class="topbar-title"><span id="page-kicker">PANEL DE CONTROL</span><h1 id="page-title">Resumen del día</h1></div>
+        <div class="topbar-actions"><div class="connection-pill"><span class="status-dot" id="connection-dot"></span><span id="connection-label">Comprobando conexión…</span></div><span class="today-label" id="today-label"></span></div>
+      </header>
+      <main id="main-content" class="main-content" tabindex="-1"></main>
+      <footer class="mobile-footer"><span>Los datos se guardan en esta tablet.</span><button class="text-button" data-page="backup">Crear copia</button></footer>
+    </div>
+  </div>
+
+  <div id="modal-root" aria-live="polite"></div>
+  <section id="print-area" aria-hidden="true"></section>
+  <input id="restore-file" type="file" accept="application/json,.json" hidden>
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>
